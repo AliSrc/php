@@ -1,12 +1,23 @@
 <?php
 $title = "New User Registration";
 require 'partials/head.php';
-
 ?>
-
     <div class="row justify-content-center">
         <h6>Fill in to add a new user</h6>
     </div>
+    <?php
+if (! empty($errorMessage) && is_array($errorMessage)) {
+    ?>
+            <div class="error-message">
+            <?php
+            foreach($errorMessage as $message) {
+                echo $message . "<br/>";
+            }
+            ?>
+            </div>
+<?php
+}
+?>
     <div class="row justify-content-center">
         <form method="POST" action="/registration" enctype="multipart/form-data ">
              <div class="form-group input-group">
@@ -39,6 +50,12 @@ require 'partials/head.php';
                     </div>
                     <input name="password" class="form-control" placeholder="Create password" type="password">
                 </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input name="confirm_password" class="form-control" placeholder="Confirm password" type="password">
+                </div> <!-- form-group// -->
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
                 </div> <!-- form-group// -->
@@ -47,4 +64,4 @@ require 'partials/head.php';
     </div>
 
 <?php
-require 'partials/footer.php';
+require_once 'partials/footer.php';

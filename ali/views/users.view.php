@@ -7,6 +7,13 @@ require 'partials/head.php';
   <div class="col">
     <h1>Users</h1>
   </div>
+  <div>
+    <?php
+    if (isset($message)) { ?>
+        <p><?php echo $message; ?></p>
+      <?php } ?>
+
+  </div>
 </div>
 <div class="row">
   <div class="col-md-12">

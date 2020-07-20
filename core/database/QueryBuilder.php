@@ -36,6 +36,12 @@ class QueryBuilder{
 
     public function insertUser($table, $name, $lastname, $email, $phone, $password)
     {
+        $sqlcheck = "SELECT COUNT(name) FROM {$table} WHERE name='{$name}'";
+        $result = $this->pdo->prepare($sqlcheck);
+        $result->execute();
+        $numberofRows = $result->fetchColumn();
+
+        if ($numberofRows < 1){
         $statement = $this->pdo->prepare(
                           "CREATE TABLE IF NOT EXISTS {$table} (
                           ID int(11) AUTO_INCREMENT,
@@ -46,6 +52,9 @@ class QueryBuilder{
                           VALUES ('{$name}', '{$lastname}', '{$email}', '{$phone}', md5('{$password}'));"
                       );
         $statement->execute();
+        } else {
+            $errorMessage= "This username is already taken!";
+        }
     }
     public function deleteName($table, $id)
     {
