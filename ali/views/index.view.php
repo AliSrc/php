@@ -1,5 +1,5 @@
 <?php
-$title = "Matematik";
+$title = "Ali Sarac Website";
 require 'partials/head.php';
 
 ?>
