@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Ali\\Controllers\\MenuController' => $baseDir . '/ali/controllers/MenuController.php',
     'Ali\\Controllers\\PagesController' => $baseDir . '/ali/controllers/PagesController.php',
     'Ali\\Controllers\\RegistrationController' => $baseDir . '/ali/controllers/RegistrationController.php',
     'Ali\\Controllers\\UsersController' => $baseDir . '/ali/controllers/UsersController.php',

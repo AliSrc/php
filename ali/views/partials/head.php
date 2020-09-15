@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" />
     <script src="https://kit.fontawesome.com/fec6e4802b.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-light">
     <?php include_once 'nav.php' ?>
     <div class="container-fluid m-auto">
-        <div class="container mt-3">
+        <div class="container mt-5">

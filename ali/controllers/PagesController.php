@@ -19,4 +19,9 @@ class PagesController {
     {
         return view('contact');
     }
+
+    public function menu()
+    {
+        return view('menu');
+    }
 }
