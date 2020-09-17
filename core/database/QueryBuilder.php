@@ -22,18 +22,6 @@ class QueryBuilder{
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function insertName($table, $name)
-    {
-        $statement = $this->pdo->prepare("CREATE TABLE IF NOT EXISTS {$table} (
-                          ID int(11) AUTO_INCREMENT,
-                          name varchar(255) NOT NULL,
-                          PRIMARY KEY  (ID));
-                          /* Creating table if not exists ends here and Insert going progressed*/
-                          INSERT INTO name ({$table})
-                        VALUES ('{$name}');");
-        $statement->execute();
-    }
-
     public function insertUser($table, $name, $lastname, $email, $phone, $password)
     {
         $sqlcheck = "SELECT COUNT(name) FROM {$table} WHERE name='{$name}'";
@@ -56,9 +44,34 @@ class QueryBuilder{
             $errorMessage= "This username is already taken!";
         }
     }
-    public function deleteName($table, $id)
-    {
-        $statement = $this->pdo->prepare("DELETE FROM {$table} WHERE id = '{$id}'");
+
+  public function insertProduct($table, $productName, $price)
+      {
+          $statement = $this->pdo->prepare(
+            "INSERT INTO {$table} (productName, price)
+            VALUES ('{$productName}', '{$price}');"
+          );
+          $statement->execute();
+      }
+
+      public function firstInstall()
+      {
+        $statement = $this->pdo->prepare(
+          "CREATE TABLE IF NOT EXISTS users (
+          id int(11) NOT NULL AUTO_INCREMENT,
+          name varchar(255) NOT NULL,
+          lastname varchar(50) NOT NULL,
+          email varchar(75) NOT NULL,
+          phone varchar(75) NOT NULL,
+          password varchar(255) NOT NULL,
+          PRIMARY KEY  (id));
+
+          CREATE TABLE IF NOT EXISTS product (
+          product_id int(11) NOT NULL AUTO_INCREMENT,
+          productName varchar(150) NOT NULL,
+          price varchar(4) NOT NULL,
+          PRIMARY KEY  (product_id));
+      ");
         $statement->execute();
-    }
+      }
 }

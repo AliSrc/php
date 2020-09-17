@@ -24,4 +24,10 @@ class PagesController {
     {
         return view('menu');
     }
+
+    public function firstInstall()
+    {
+        App::get('database')->firstInstall();
+        return redirect('menu');
+    }
 }
