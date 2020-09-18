@@ -21,16 +21,23 @@ require 'partials/head.php';
       <div class=" card mr-2 ml-2">
         <div class="card-header">
           Menu
-        </div>
-        <div class="card-body">
-          Some Text
+	</div>
+	<?php foreach ($products as $product) : ?>
+	<div class="card-body">
+	dd($product->productName);
+		<?= "$product->productName"; ?>
+	<?php endforeach; ?>
         </div>
       </div>
     </div>
     <div class="col-md-3">
      <div class="card mr-2 ml-2">
-        <div class="card-header">Kurv</div>
-        <div class="card-body">Some Text</div>
+	<div class="card-header">
+		Kurv
+	</div>
+	<div class="card-body">
+		Some Text
+	</div>
     </div>
   </div>
   </div>

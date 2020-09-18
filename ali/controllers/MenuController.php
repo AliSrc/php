@@ -4,9 +4,16 @@ namespace Ali\Controllers;
 use Ali\Core\App;
 
 class MenuController {
-    public function index()
+    public function addMenu()
     {
        return view('addmenu');
+    }
+
+
+    public function index()
+    {
+	    $products = App::get('database')->selectAll('product');
+	    return view('menu', compact('product'));
     }
 
      public function store()

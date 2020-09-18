@@ -13,7 +13,7 @@ $router->post('users', 'UsersController@store');
 $router->get('registration', 'RegistrationController@index');
 $router->post('registration', 'RegistrationController@store');
 
-$router->get('addmenu', 'MenuController@index');
+$router->get('menu', 'MenuController@index');
 $router->post('addmenu', 'MenuController@store');
 
 
