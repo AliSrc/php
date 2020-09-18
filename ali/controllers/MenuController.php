@@ -13,7 +13,7 @@ class MenuController {
     public function index()
     {
 	    $products = App::get('database')->selectAll('product');
-	    return view('menu', compact('product'));
+	    return view('menu', compact('products'));
     }
 
      public function store()

@@ -1,7 +1,6 @@
 <?php
-
-$title = "Menu | Pizza";
-require 'partials/head.php';
+  $title = "Menu | Pizza";
+  require 'partials/head.php';
 ?>
 <div class="container">
   <div class="row justify-content-around">
@@ -19,29 +18,29 @@ require 'partials/head.php';
     </div>
     <div class="col-md-6">
       <div class=" card mr-2 ml-2">
-        <div class="card-header">
-          Menu
-	</div>
-	<?php foreach ($products as $product) : ?>
-	<div class="card-body">
-	dd($product->productName);
-		<?= "$product->productName"; ?>
-	<?php endforeach; ?>
+       <div class="card-header">
+        Menu
+	     </div>
+    	 <div class="card-body">
+        	<?php foreach ($products as $product) : ?>
+        		<?= "<div class='float-left'>$product->product_id. $product->productName
+                        </div><div class='float-right'>$product->price</div>"; ?><br />
+        	<?php endforeach; ?>
         </div>
       </div>
     </div>
     <div class="col-md-3">
      <div class="card mr-2 ml-2">
-	<div class="card-header">
-		Kurv
-	</div>
-	<div class="card-body">
-		Some Text
-	</div>
+	     <div class="card-header">
+		    Kurv
+	     </div>
+	     <div class="card-body">
+		    Some Text
+	     </div>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 
-  <?php
+<?php
 require 'partials/footer.php';
