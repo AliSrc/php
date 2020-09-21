@@ -25,8 +25,8 @@ require 'partials/head.php';
   </div>
 </div>
 <div class="row">
-  <div class="col-md-2">
-    <a href="/registration">New User?</a>
+  <div class="col-md-2 mt-2">
+    <a href="/registration"><button class="btn btn-primary">New User?</button></a>
   </div>
 
 <?php

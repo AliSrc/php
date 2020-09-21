@@ -3,8 +3,6 @@
 namespace Ali\Core\Database;
 use PDO;
 
-
-
 class QueryBuilder{
     protected $pdo;
 
@@ -14,6 +12,24 @@ class QueryBuilder{
     }
 
     public function selectAll($table)
+    {
+        $statement = $this->pdo->prepare("select * from {$table}");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function selectPizzas($table)
+    {
+        $statement = $this->pdo->prepare("select * from {$table}  ORDER BY number");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function selectCategories($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
 
@@ -45,11 +61,11 @@ class QueryBuilder{
         }
     }
 
-  public function insertProduct($table, $productName, $price)
+  public function insertPizza($table, $number, $pizzaName, $price, $category)
       {
           $statement = $this->pdo->prepare(
-            "INSERT INTO {$table} (productName, price)
-            VALUES ('{$productName}', '{$price}');"
+            "INSERT INTO {$table} (number, pizzaName, price, category)
+            VALUES ('{$number}', '{$pizzaName}', '{$price}', '{$category}');"
           );
           $statement->execute();
       }
@@ -64,13 +80,25 @@ class QueryBuilder{
           email varchar(75) NOT NULL,
           phone varchar(75) NOT NULL,
           password varchar(255) NOT NULL,
-          PRIMARY KEY  (id));
+          PRIMARY KEY  (id)
+          );
 
-          CREATE TABLE IF NOT EXISTS product (
-          product_id int(11) NOT NULL AUTO_INCREMENT,
-          productName varchar(150) NOT NULL,
+          CREATE TABLE IF NOT EXISTS categories (
+          category_id int(11) NOT NULL AUTO_INCREMENT,
+          category_name varchar(50) NOT NULL,
+          PRIMARY KEY (category_id)
+          );
+
+          CREATE TABLE IF NOT EXISTS pizzas (
+          pizza_id int(11) NOT NULL AUTO_INCREMENT,
+          number int(11) UNSIGNED NOT NULL,
+          pizzaName varchar(150) NOT NULL,
           price varchar(4) NOT NULL,
-          PRIMARY KEY  (product_id));
+          category int(11) NOT NULL,
+          PRIMARY KEY  (pizza_id),
+          FOREIGN KEY (category) REFERENCES categories(category_id)
+          );
+
       ");
         $statement->execute();
       }

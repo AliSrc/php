@@ -6,22 +6,24 @@ use Ali\Core\App;
 class MenuController {
     public function addMenu()
     {
-       return view('addmenu');
+        $categories = App::get('database')->selectCategories('categories');
+        return view('addmenu', compact('categories'));
     }
 
 
     public function index()
     {
-	    $products = App::get('database')->selectAll('product');
-	    return view('menu', compact('products'));
+	    $pizzas = App::get('database')->selectPizzas('pizzas');
+	    return view('menu', compact('pizzas'));
     }
 
      public function store()
     {
-        // dd($_POST);
-        $productName = $_POST['productName'];
+        $pizzaName = $_POST['pizzaName'];
+        $number = $_POST['number'];
         $price = $_POST['price'];
-        App::get('database')->insertProduct('product', $productName, $price);
+        $category = $_POST['category'];
+        App::get('database')->insertpizza('pizzas', $number, $pizzaName, $price, $category);
         return redirect('addmenu', compact($message));
     }
 

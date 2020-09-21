@@ -28,6 +28,6 @@ class PagesController {
     public function firstInstall()
     {
         App::get('database')->firstInstall();
-        return redirect('menu');
+        // return redirect('menu');
     }
 }

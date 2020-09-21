@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row justify-content-around">
     <div class="col-md-3">
-      <div class="card mr-2 ml-2">
+      <div class="card mr-2">
         <div class="card-header">
           Kategorier
         </div>
@@ -22,15 +22,15 @@
         Menu
 	     </div>
     	 <div class="card-body">
-        	<?php foreach ($products as $product) : ?>
-        		<?= "<div class='float-left'>$product->product_id. $product->productName
-                        </div><div class='float-right'>$product->price</div>"; ?><br />
+        	<?php foreach ($pizzas as $pizza) : ?>
+        		<?= "<div class='float-left'>$pizza->number. $pizza->pizzaName
+                        </div><div class='float-right'>$pizza->price,-</div>"; ?><br />
         	<?php endforeach; ?>
         </div>
       </div>
     </div>
     <div class="col-md-3">
-     <div class="card mr-2 ml-2">
+     <div class="card ml-2">
 	     <div class="card-header">
 		    Kurv
 	     </div>
@@ -40,6 +40,10 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col mt-2">
+      <a href="/addmenu"><button class="btn btn-primary">Add Product</button></a>
+    </div>
 </div>
 
 <?php
