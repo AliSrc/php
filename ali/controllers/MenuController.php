@@ -4,17 +4,18 @@ namespace Ali\Controllers;
 use Ali\Core\App;
 
 class MenuController {
+
     public function addMenu()
     {
         $categories = App::get('database')->selectCategories('categories');
         return view('addmenu', compact('categories'));
     }
 
-
     public function index()
     {
 	    $pizzas = App::get('database')->selectPizzas('pizzas');
-	    return view('menu', compact('pizzas'));
+        $categories = App::get('database')->selectCategories('categories');
+	    return view('menu', compact('pizzas', 'categories'));
     }
 
      public function store()
@@ -26,5 +27,4 @@ class MenuController {
         App::get('database')->insertpizza('pizzas', $number, $pizzaName, $price, $category);
         return redirect('addmenu', compact($message));
     }
-
 }

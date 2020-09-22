@@ -99,6 +99,12 @@ class QueryBuilder{
           FOREIGN KEY (category) REFERENCES categories(category_id)
           );
 
+          CREATE TABLE IF NOT EXISTS toppings (
+          topping_id int(11) NOT NULL AUTO_INCREMENT,
+          topping_name varchar(50) NOT NULL,
+
+          );
+
       ");
         $statement->execute();
       }

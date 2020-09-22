@@ -1,5 +1,4 @@
 <?php
-
 $title = "PHP Learning | Users";
 require 'partials/head.php';
 ?>
@@ -10,24 +9,29 @@ require 'partials/head.php';
   <div>
     <?php
     if (isset($message)) { ?>
-        <p><?php echo $message; ?></p>
-      <?php } ?>
-
+    <p><?php echo $message; ?></p>
+    <?php } ?>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <ul class="list-group list-group-flush">
-      <?php foreach ($users as $user) : ?>
-        <li class='list-group-item'><?= "$user->id: $user->name $user->lastname "; ?></li>
-      <?php endforeach; ?>
-    </ul>
+    <div class="card mr-2">
+      <div class="card-header">
+        Users
+      </div>
+      <div class="card-body bg-white">
+        <div class="card-link">
+          <?php foreach ($users as $user) : ?>
+          <?= "$user->id: $user->name $user->lastname <br />"; ?>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-2 mt-2">
     <a href="/registration"><button class="btn btn-primary">New User?</button></a>
   </div>
-
-<?php
-require 'partials/footer.php';
+  <?php
+  require 'partials/footer.php';
