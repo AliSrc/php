@@ -22,7 +22,7 @@ class QueryBuilder{
 
     public function selectPizzas($table)
     {
-        $statement = $this->pdo->prepare("select * from {$table}  ORDER BY number");
+        $statement = $this->pdo->prepare("select * from {$table}  ORDER BY pizza_number");
 
         $statement->execute();
 
@@ -61,19 +61,19 @@ class QueryBuilder{
         }
     }
 
-  public function insertPizza($table, $number, $pizzaName, $price, $category)
+  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category)
       {
           $statement = $this->pdo->prepare(
-            "INSERT INTO {$table} (number, pizzaName, price, category)
-            VALUES ('{$number}', '{$pizzaName}', '{$price}', '{$category}');"
+            "INSERT INTO {$table} (pizza_number, pizza_name, price, category)
+            VALUES ('{$pizza_number}', '{$pizza_name}', '{$price}', '{$category}');"
           );
           $statement->execute();
       }
 
       public function firstInstall()
       {
-        $statement = $this->pdo->prepare(
-          "CREATE TABLE IF NOT EXISTS users (
+        $statement = $this->pdo->prepare("
+          CREATE TABLE IF NOT EXISTS users (
           id int(11) NOT NULL AUTO_INCREMENT,
           name varchar(255) NOT NULL,
           lastname varchar(50) NOT NULL,
@@ -90,21 +90,29 @@ class QueryBuilder{
           );
 
           CREATE TABLE IF NOT EXISTS pizzas (
-          pizza_id int(11) NOT NULL AUTO_INCREMENT,
-          number int(11) UNSIGNED NOT NULL,
-          pizzaName varchar(150) NOT NULL,
+          pizza_id int(11) NOT NULL,
+          pizza_number int(11) NOT NULL,
+          pizza_name varchar(150) NOT NULL,
           price varchar(4) NOT NULL,
           category int(11) NOT NULL,
-          PRIMARY KEY  (pizza_id),
+          PRIMARY KEY  (pizza_number),
           FOREIGN KEY (category) REFERENCES categories(category_id)
           );
 
           CREATE TABLE IF NOT EXISTS toppings (
           topping_id int(11) NOT NULL AUTO_INCREMENT,
           topping_name varchar(50) NOT NULL,
-
+          PRIMARY KEY (topping_id)
           );
 
+          CREATE TABLE IF NOT EXISTS pizza_topping (
+          id int(11) NOT NULL AUTO_INCREMENT,
+          pizza_number int(11) NOT NULL,
+          topping_id int(11) NOT NULL,
+          PRIMARY KEY (id),
+          FOREIGN KEY (pizza_number) REFERENCES pizzas(pizza_number),
+          FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
+          );
       ");
         $statement->execute();
       }

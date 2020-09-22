@@ -20,11 +20,11 @@ class MenuController {
 
      public function store()
     {
-        $pizzaName = $_POST['pizzaName'];
-        $number = $_POST['number'];
+        $pizza_name = $_POST['pizza_name'];
+        $pizza_number = $_POST['pizza_number'];
         $price = $_POST['price'];
         $category = $_POST['category'];
-        App::get('database')->insertpizza('pizzas', $number, $pizzaName, $price, $category);
+        App::get('database')->insertpizza('pizzas', $pizza_number, $pizza_name, $price, $category);
         return redirect('addmenu', compact($message));
     }
 }

@@ -25,7 +25,7 @@ require 'partials/head.php';
         </div>
         <div class="card-body">
           <?php foreach ($pizzas as $pizza) : ?>
-          <?= "<div class='float-left'>$pizza->number. $pizza->pizzaName
+          <?= "<div class='float-left'>$pizza->pizza_number. $pizza->pizza_name
             </div><div class='float-right'>$pizza->price,-</div>"; ?><br />
             <?php endforeach; ?>
           </div>
