@@ -2,6 +2,8 @@
 
 namespace Ali\Core\Database;
 use PDO;
+require 'Pizzas.php';
+require 'Toppings.php';
 
 class QueryBuilder{
     protected $pdo;
@@ -20,13 +22,26 @@ class QueryBuilder{
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function selectPizzas($table)
+    public function selectToppings($table)
     {
-        $statement = $this->pdo->prepare("select * from {$table}  ORDER BY pizza_number");
+        $statement = $this->pdo->prepare("select *
+          from $table
+          left join pizza_topping
+          on pizza_topping.topping_id = toppings.topping_id
+          ");
 
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_CLASS);
+        return $statement->fetchAll(PDO::FETCH_CLASS, 'Toppings');
+    }
+
+    public function selectPizzas($table)
+    {
+        $statement = $this->pdo->prepare("select * from $table");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS, 'Pizzas');
     }
 
     public function selectCategories($table)

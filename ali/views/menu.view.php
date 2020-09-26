@@ -2,6 +2,7 @@
 $title = "Menu | Pizza";
 require 'partials/head.php';
 ?>
+
 <div class="container">
   <div class="row justify-content-around">
     <div class="col-md-3">
@@ -24,10 +25,23 @@ require 'partials/head.php';
           Menu
         </div>
         <div class="card-body">
-          <?php foreach ($pizzas as $pizza) : ?>
-          <?= "<div class='float-left'>$pizza->pizza_number. $pizza->pizza_name
-            </div><div class='float-right'>$pizza->price,-</div>"; ?><br />
-            <?php endforeach; ?>
+
+          <?php
+          $test = new Pizzas();
+
+          foreach ($pizzas as $pizza){
+            echo "<div class='float-left'><b class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name</b>, ";
+            foreach ($toppings as $topping) {
+              if ($topping->pizza_number == $pizza->pizza_number){
+                $ptopping = $topping->topping_name;
+                echo "$ptopping ";
+                }
+              }
+              echo "</div><div class='float-right'>$pizza->price,-</div> <br />";
+            }
+
+          ?>
+
           </div>
         </div>
       </div>

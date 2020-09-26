@@ -15,7 +15,8 @@ class MenuController {
     {
 	    $pizzas = App::get('database')->selectPizzas('pizzas');
         $categories = App::get('database')->selectCategories('categories');
-	    return view('menu', compact('pizzas', 'categories'));
+        $toppings = App::get('database')->selectToppings('toppings');
+	    return view('menu', compact('pizzas', 'categories', 'toppings'));
     }
 
      public function store()
