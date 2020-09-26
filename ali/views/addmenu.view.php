@@ -18,18 +18,28 @@ require 'partials/head.php';
   </div>
   <div class="form-group">
       <label for="inputState">Category</label>
-      <select name="category" id="inputState" class="form-control">
+      <select name="category" id="category" class="form-control">
         <option selected>Choose Category</option>
         <?php foreach ($categories as $category) : ?>
           <option name="<?= "$category->category_name"; ?>" value="<?= "$category->category_id"; ?>" ><?= "$category->category_name"; ?></option>
         <?php endforeach; ?>
       </select>
-
-
-
   </div>
+  <div class="form-group">
+    <label for="inputState">Toppings</label>
+    <select name="toppings" id="toppings" class="form-control">
+      <option selected>Choose Topping</option>
+      <?php foreach ($toppings as $topping) : ?>
+        <option name="<?= "$topping->topping_name"; ?>" value="<?= "$topping->topping_id"; ?>" ><?= "$topping->topping_name"; ?></option>
+      <?php endforeach; ?>
+    </select>
+</div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+      <div class="col mt-2">
+        <a href="/addtopping"><button class="btn btn-primary">Add Toppings</button></a>
+      </div>
 
 <?php
 require 'partials/footer.php';

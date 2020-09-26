@@ -85,6 +85,15 @@ class QueryBuilder{
           $statement->execute();
       }
 
+  public function insertTopping($table, $topping, $price)
+      {
+          $statement = $this->pdo->prepare(
+            "INSERT INTO {$table} (topping_name, price)
+            VALUES ('{$topping}', '{$price}');"
+          );
+          $statement->execute();
+      }
+
       public function firstInstall()
       {
         $statement = $this->pdo->prepare("
@@ -117,6 +126,7 @@ class QueryBuilder{
           CREATE TABLE IF NOT EXISTS toppings (
           topping_id int(11) NOT NULL AUTO_INCREMENT,
           topping_name varchar(50) NOT NULL,
+          price varchar(10) NOT NULL,
           PRIMARY KEY (topping_id)
           );
 
