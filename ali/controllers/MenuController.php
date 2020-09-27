@@ -34,13 +34,6 @@ class MenuController {
         $price = $_POST['price'];
         $category = $_POST['category'];
         $topis = $_POST['tops'];
-        // $chck = array();
-        // foreach ($topis as $top) {
-        //     $chck = ($top);
-        //     echo $top. "<br>";
-        // }
-        // echo count($topis);
-        // die();
 
         App::get('database')->insertpizza('pizzas', $pizza_number, $pizza_name, $price, $category, $topis);
         return redirect('addmenu');
