@@ -5,7 +5,9 @@ $router->get('', 'PagesController@home');
 $router->get('about', 'PagesController@about');
 $router->get('contact', 'PagesController@contact');
 $router->get('menu', 'PagesController@menu');
+
 $router->get('firstInstall', 'PagesController@firstInstall');
+$router->post('firstInstall', 'PagesController@firstInstallStore');
 
 $router->get('users', 'UsersController@index');
 $router->post('users', 'UsersController@store');

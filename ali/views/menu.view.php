@@ -2,7 +2,6 @@
 $title = "Menu | Pizza";
 require 'partials/head.php';
 ?>
-
 <div class="container">
   <div class="row justify-content-around">
     <div class="col-md-3">
@@ -25,40 +24,36 @@ require 'partials/head.php';
           Menu
         </div>
         <div class="card-body">
-
           <?php
-
           foreach ($pizzas as $pizza){
-            echo "<div class='float-left'><span class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name </span><span class='text-secondary'>";
-            foreach ($toppings as $topping) {
-              if ($topping->pizza_number == $pizza->pizza_number){
-                $ptopping = $topping->topping_name;
-                echo "$ptopping ";
-                }
-              }
-              echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";
-            }
-
+          echo "<div class='float-left'><span class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name </span><span class='text-secondary'>";
+          foreach ($toppings as $topping) {
+          if ($topping->pizza_number == $pizza->pizza_number){
+          $ptopping = $topping->topping_name;
+          echo "$ptopping ";
+          }
+          }
+          echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";
+          }
           ?>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card ml-2">
-          <div class="card-header">
-            Kurv
-          </div>
-          <div class="card-body">
-            Some Text
-          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col mt-2">
-        <a href="/addmenu"><button class="btn btn-primary">Add Product</button></a>
+    <div class="col-md-3">
+      <div class="card ml-2">
+        <div class="card-header">
+          Kurv
+        </div>
+        <div class="card-body">
+          Some Text
+        </div>
       </div>
     </div>
-    <?php
-    require 'partials/footer.php';
+  </div>
+  <div class="row">
+    <div class="col mt-2">
+      <a href="/addmenu"><button class="btn btn-primary">Add Product</button></a>
+    </div>
+  </div>
+  <?php
+  require 'partials/footer.php';

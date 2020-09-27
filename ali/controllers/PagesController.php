@@ -27,7 +27,17 @@ class PagesController {
 
     public function firstInstall()
     {
+        // App::get('database')->firstInstall();
+        return view('firstInstall');
+    }
+    public function firstInstallStore()
+    {
         App::get('database')->firstInstall();
-        // return redirect('menu');
+        // if (!App::get('database')->firstInstall()) {
+        //     $message = "Unsuccessfull";
+        // } else {
+        // $message = "You just created the required tables.";
+        // }
+        return view('firstInstall');
     }
 }
