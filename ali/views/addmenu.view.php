@@ -17,7 +17,7 @@ require 'partials/head.php';
     <input type="text" class="form-control" name="price" id="price" placeholder="Enter Price">
   </div>
   <div class="form-group">
-      <label for="inputState">Category</label>
+      <label for="category">Category</label>
       <select name="category" id="category" class="form-control">
         <option selected>Choose Category</option>
         <?php foreach ($categories as $category) : ?>
@@ -26,13 +26,10 @@ require 'partials/head.php';
       </select>
   </div>
   <div class="form-group">
-    <label for="inputState">Toppings</label>
-    <select name="toppings" id="toppings" class="form-control">
-      <option selected>Choose Topping</option>
+    <label for="topping">Toppings</label><br />
       <?php foreach ($toppings as $topping) : ?>
-        <option name="<?= "$topping->topping_name"; ?>" value="<?= "$topping->topping_id"; ?>" ><?= "$topping->topping_name"; ?></option>
+        <input type="checkbox" name="tops[]" value="<?= $topping->topping_id ?>"/> <?= $topping->topping_name ?> <br />
       <?php endforeach; ?>
-    </select>
 </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

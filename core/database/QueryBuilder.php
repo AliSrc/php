@@ -76,13 +76,21 @@ class QueryBuilder{
         }
     }
 
-  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category)
+  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category, $topis)
       {
           $statement = $this->pdo->prepare(
             "INSERT INTO {$table} (pizza_number, pizza_name, price, category)
-            VALUES ('{$pizza_number}', '{$pizza_name}', '{$price}', '{$category}');"
-          );
+            VALUES ('{$pizza_number}', '{$pizza_name}', '{$price}', '{$category}');
+            ");
           $statement->execute();
+
+          foreach ($topis as $topi) {
+            $statement1 = $this->pdo->prepare(
+              "INSERT INTO pizza_topping (pizza_number, topping_id)
+              VALUES ('{$pizza_number}', '{$topi}');"
+            );
+            $statement1->execute();
+            }
       }
 
   public function insertTopping($table, $topping, $price)

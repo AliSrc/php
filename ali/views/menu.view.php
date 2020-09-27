@@ -30,14 +30,14 @@ require 'partials/head.php';
           $test = new Pizzas();
 
           foreach ($pizzas as $pizza){
-            echo "<div class='float-left'><b class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name</b>, ";
+            echo "<div class='d-flex justify-content-between'>$pizza->pizza_number. $pizza->pizza_name ";
             foreach ($toppings as $topping) {
               if ($topping->pizza_number == $pizza->pizza_number){
                 $ptopping = $topping->topping_name;
                 echo "$ptopping ";
                 }
               }
-              echo "</div><div class='float-right'>$pizza->price,-</div> <br />";
+              echo "<div>$pizza->price,</div></div>";
             }
 
           ?>
