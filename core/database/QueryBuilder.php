@@ -107,24 +107,24 @@ class QueryBuilder{
         $statement = $this->pdo->prepare("
           CREATE TABLE IF NOT EXISTS users (
           id int(11) NOT NULL AUTO_INCREMENT,
-          name varchar(255) NOT NULL,
-          lastname varchar(50) NOT NULL,
+          name varchar(25) NOT NULL,
+          lastname varchar(25) NOT NULL,
           email varchar(75) NOT NULL,
-          phone varchar(75) NOT NULL,
-          password varchar(255) NOT NULL,
+          phone varchar(14) NOT NULL,
+          password varchar(50) NOT NULL,
           PRIMARY KEY  (id)
           );
 
           CREATE TABLE IF NOT EXISTS categories (
           category_id int(11) NOT NULL AUTO_INCREMENT,
-          category_name varchar(50) NOT NULL,
+          category_name varchar(30) NOT NULL,
           PRIMARY KEY (category_id)
           );
 
           CREATE TABLE IF NOT EXISTS pizzas (
           pizza_id int(11) NOT NULL,
           pizza_number int(11) NOT NULL,
-          pizza_name varchar(150) NOT NULL,
+          pizza_name varchar(30) NOT NULL,
           price varchar(4) NOT NULL,
           category int(11) NOT NULL,
           PRIMARY KEY  (pizza_number),
@@ -133,7 +133,7 @@ class QueryBuilder{
 
           CREATE TABLE IF NOT EXISTS toppings (
           topping_id int(11) NOT NULL AUTO_INCREMENT,
-          topping_name varchar(50) NOT NULL,
+          topping_name varchar(30) NOT NULL,
           price varchar(10) NOT NULL,
           PRIMARY KEY (topping_id)
           );

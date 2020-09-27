@@ -8,8 +8,9 @@ class MenuController {
     public function addMenu()
     {
         $categories = App::get('database')->selectCategories('categories');
+        $pizzas = App::get('database')->selectPizzas('pizzas');
         $toppings = App::get('database')->selectCategories('toppings');
-        return view('addmenu', compact('categories', 'toppings'));
+        return view('addmenu', compact('categories', 'toppings', 'pizzas'));
     }
 
     public function addtopping()

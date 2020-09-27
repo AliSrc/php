@@ -5,7 +5,7 @@ body { font-family: 'Trebuchet MS'; }
 .navbar-brand { color: #f4f4f4; cursor: pointer; }
 .nav-link { margin-right: 1em !important; }
 .navbar-collapse { justify-content: flex-end; }
-.navbar-toggler { background: #fff !important; }
+.navbar-toggler { background: transparent !important; }
 .nav-link:hover { background: transparent !important; }
 
 .logo {
@@ -23,5 +23,20 @@ p, h1, h2, h3, h4, h5, li, label {
 }
 
 a {
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
     text-shadow: 0.3px 0.3px 0.2px rgba(0,0,0,.5) ;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+.footer {
+    color: rgba(0,0,0,.5);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* color: white; */
+  text-align: center;
 }

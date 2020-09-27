@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link <?php echo isActive('') ?>" href="/">Home</a><span class="sr-only"></span>
+      <a class="nav-item nav-link <?php echo isActive('') ?>" href="/">Home</a>
       <a class="nav-item nav-link <?php echo isActive('users') ?>" href="/users">Users</a>
       <a class="nav-item nav-link <?php echo isActive('menu') ?>" href="/menu">Menu</a>
       <a class="nav-item nav-link <?php echo isActive('about') ?>" href="/about">About Us</a>
