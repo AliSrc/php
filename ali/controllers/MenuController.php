@@ -26,14 +26,26 @@ class MenuController {
 	return view('editpizza', compact('pizzas'));
     }
 
+    public function category()
+    {
+        $categories = App::get('database')->selectCategories('categories');
+        return view('category', compact('categories'));
+    }
+
+    public function storeCategory()
+    {
+        $category = $_POST['category'];
+        App::get('database')->insertCategory('categories', $category);
+        return redirect('category');
+    }
+
      public function store()
     {
-
         $pizza_name = $_POST['pizza_name'];
         $pizza_number = $_POST['pizza_number'];
         $price = $_POST['price'];
         $category = $_POST['category'];
-        $topis = $_POST['tops'];
+        $tops = $_POST['tops'];
         $errorMessage = array();
         $valid = true;
 
@@ -62,7 +74,7 @@ class MenuController {
         if ($valid == false) {
             return redirect('addmenu', compact($errorMessage));
         }else {
-        App::get('database')->insertpizza('pizzas', $pizza_number, $pizza_name, $price, $category, $topis);
+        App::get('database')->insertpizza('pizzas', $pizza_number, $pizza_name, $price, $category, $tops);
         return redirect('addmenu');
         }
     }

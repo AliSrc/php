@@ -45,7 +45,7 @@ class QueryBuilder{
     }
     public function selectTop($table)
     {
-        $statement = $this->pdo->prepare("select topping_name, price from {$table}");
+        $statement = $this->pdo->prepare("select topping_id, topping_name, price from {$table}");
 
         $statement->execute();
 
@@ -75,7 +75,7 @@ class QueryBuilder{
         }
     }
 
-  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category, $topis)
+  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category, $tops)
       {
           $statement = $this->pdo->prepare(
             "INSERT INTO {$table} (pizza_number, pizza_name, price, category)
@@ -83,10 +83,11 @@ class QueryBuilder{
             ");
           $statement->execute();
 
-          foreach ($topis as $topi) {
+          foreach ($tops as $topi) {
+            $topping = $topi;
             $statement1 = $this->pdo->prepare(
               "INSERT INTO pizza_topping (pizza_number, topping_id)
-              VALUES ('{$pizza_number}', '{$topi}');"
+              VALUES ('{$pizza_number}', '{$topping}');"
             );
             $statement1->execute();
             }
@@ -97,6 +98,15 @@ class QueryBuilder{
           $statement = $this->pdo->prepare(
             "INSERT INTO {$table} (topping_name, price)
             VALUES ('{$topping}', '{$price}');"
+          );
+          $statement->execute();
+      }
+
+      public function insertCategory($table, $category)
+      {
+          $statement = $this->pdo->prepare(
+            "INSERT INTO {$table} (category_name)
+            VALUES ('{$category}');"
           );
           $statement->execute();
       }

@@ -15,9 +15,14 @@ $router->get('registration', 'RegistrationController@index');
 $router->post('registration', 'RegistrationController@store');
 
 $router->get('menu', 'MenuController@index');
+
 $router->get('addmenu', 'MenuController@addMenu');
 $router->post('addmenu', 'MenuController@store');
+
 $router->get('addtopping', 'MenuController@addtopping');
 $router->post('addtopping', 'MenuController@storeTopping');
+
 $router->get('editpizza', 'MenuController@editPizza');
 
+$router->get('category', 'MenuController@category');
+$router->post('category', 'MenuController@storeCategory');

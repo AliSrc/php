@@ -36,10 +36,10 @@ require 'partials/head.php';
             </select>
           </div>
 	  <button type="submit" class="btn btn-primary">Submit</button>
-    
-	    <a href="/addtopping"><button type="button" class="btn btn-primary">Add Toppings</button></a> 
-	    <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
 
+	    <a href="/addtopping"><button type="button" class="btn btn-primary">Add Toppings</button></a>
+      <a href="/category"><button type="button" class="btn btn-primary">Add Category</button></a>
+	    <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
         </div>
         <div class="col-md-4">
           <div class="form-group">
