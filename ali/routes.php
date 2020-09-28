@@ -20,5 +20,5 @@ $router->get('addmenu', 'MenuController@addMenu');
 $router->post('addmenu', 'MenuController@store');
 $router->get('addtopping', 'MenuController@addtopping');
 $router->post('addtopping', 'MenuController@storeTopping');
-
+$router->get('editpizza', 'MenuController@editPizza');
 

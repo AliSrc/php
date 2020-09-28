@@ -52,7 +52,7 @@ require 'partials/head.php';
   </div>
   <div class="row">
     <div class="col mt-2">
-      <a href="/addmenu"><button class="btn btn-primary">Add Product</button></a>
+      <a href="/addmenu"><button class="btn btn-primary">Add Product?</button></a>
     </div>
   </div>
   <?php

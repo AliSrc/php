@@ -43,6 +43,14 @@ class QueryBuilder{
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+    public function selectTop($table)
+    {
+        $statement = $this->pdo->prepare("select topping_name, price from {$table}");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
 
     public function insertUser($table, $name, $lastname, $email, $phone, $password)
     {
@@ -144,8 +152,8 @@ class QueryBuilder{
           pizza_number int(11) NOT NULL,
           topping_id int(11) NOT NULL,
           PRIMARY KEY (id),
-          FOREIGN KEY (pizza_number) REFERENCES pizzas(pizza_number),
-          FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
+          FOREIGN KEY (pizza_number) REFERENCES pizzas(pizza_number) ON DELETE CASCADE,
+          FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)ON DELETE CASCADE
           );
       ");
         $statement->execute();

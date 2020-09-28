@@ -17,8 +17,13 @@ class MenuController {
     {
         $categories = App::get('database')->selectCategories('categories');
         $pizzas = App::get('database')->selectPizzas('pizzas');
-        $toppings = App::get('database')->selectCategories('toppings');
+        $toppings = App::get('database')->selectTop('toppings');
         return view('addmenu', compact('categories', 'toppings', 'pizzas'));
+    }
+
+    public function editPizza(){
+	$pizzas = App::get('database',)->selectPizzas('pizzas');
+	return view('editpizza', compact('pizzas'));
     }
 
      public function store()

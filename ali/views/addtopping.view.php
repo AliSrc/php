@@ -16,6 +16,7 @@ require 'partials/head.php';
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="/addmenu"><button type="button" class="btn btn-primary">Back </button></a>
         </div>
       </div>
       <div class="col-md-4">

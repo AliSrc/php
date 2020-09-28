@@ -35,6 +35,11 @@ require 'partials/head.php';
               <?php endforeach; ?>
             </select>
           </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+    
+	    <a href="/addtopping"><button type="button" class="btn btn-primary">Add Toppings</button></a> 
+	    <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
+
         </div>
         <div class="col-md-4">
           <div class="form-group">
@@ -43,11 +48,7 @@ require 'partials/head.php';
             <input type="checkbox" name="tops[]" value="<?= $topping->topping_id ?>"/> <?= $topping->topping_name ?> <br />
             <?php endforeach; ?>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <div class="mt-2">
-          <a href="/addtopping"><button class="btn btn-primary">Add Toppings</button></a>
-        </div>
       </div>
     </div>
   </div>
