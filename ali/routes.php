@@ -10,7 +10,6 @@ $router->get('firstInstall', 'PagesController@firstInstall');
 $router->post('firstInstall', 'PagesController@firstInstallStore');
 
 $router->get('users', 'UsersController@index');
-$router->post('users', 'UsersController@store');
 
 $router->get('registration', 'RegistrationController@index');
 $router->post('registration', 'RegistrationController@store');
