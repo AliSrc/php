@@ -13,15 +13,6 @@ class QueryBuilder{
         $this->pdo = $pdo;
     }
 
-    public function selectAll($table)
-    {
-        $statement = $this->pdo->prepare("select * from {$table}");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS);
-    }
-
     public function selectToppings($table)
     {
         $statement = $this->pdo->prepare("select *
@@ -102,7 +93,17 @@ class QueryBuilder{
           $statement->execute();
       }
 
-      public function firstInstall()
+   public function selectAll($table)
+    {
+        $statement = $this->pdo->prepare("select * from {$table}");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+
+  public function firstInstall()
       {
         $statement = $this->pdo->prepare("
           CREATE TABLE IF NOT EXISTS users (
