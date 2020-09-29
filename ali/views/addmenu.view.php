@@ -8,8 +8,9 @@ require 'partials/head.php';
       <?php
       echo "<label for='topping'>Pizzas</label><br />";
       foreach ($pizzas as $pizza){
-      echo "<span class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name<br />";
+      echo "<span class='font-weight-bold'>".$pizza->pizza_number.". ".  ucwords("$pizza->pizza_name")."<br />";
         }
+
         ?>
       </div>
       <div class="col-md-5">
@@ -31,7 +32,7 @@ require 'partials/head.php';
             <select name="category" id="category" class="form-control">
               <option selected>Choose Category</option>
               <?php foreach ($categories as $category) : ?>
-              <option name="<?= "$category->category_name"; ?>" value="<?= "$category->category_id"; ?>" ><?= "$category->category_name"; ?></option>
+              <option name="<?= "$category->category_name"; ?>" value="<?= "$category->category_id"; ?>" ><?= ucwords("$category->category_name"); ?></option>
               <?php endforeach; ?>
             </select>
           </div>
@@ -40,7 +41,7 @@ require 'partials/head.php';
           <div class="form-group">
             <label for="topping">Toppings</label><br />
             <?php foreach ($toppings as $topping) : ?>
-            <input type="checkbox" id="<?= $topping->topping_id ?>" name="tops[]" value="<?= $topping->topping_id ?>"/> <label for="<?= $topping->topping_id ?>"> <?= $topping->topping_name ?> </label><br />
+            <input type="checkbox" id="<?= $topping->topping_id ?>" name="tops[]" value="<?= $topping->topping_id ?>"/> <label for="<?= $topping->topping_id ?>"> <?= ucwords("$topping->topping_name") ?> </label><br />
             <?php endforeach; ?>
           </div>
         </div>

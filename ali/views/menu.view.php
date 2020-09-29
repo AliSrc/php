@@ -4,7 +4,7 @@ require 'partials/head.php';
 ?>
 <div class="container">
   <div class="row justify-content-around">
-    <div class="col-md-3 m-1">
+    <div class="col-md-2 m-1">
       <div class="card">
         <div class="card-header">
           Kategorier
@@ -12,13 +12,13 @@ require 'partials/head.php';
         <div class="card-body bg-white">
           <div class="card-link">
             <?php foreach ($categories as $category) : ?>
-            <?= "<div class='float-left'>$category->category_name</div>"; ?><br />
+            <?= "<div class='float-left'>". ucwords($category->category_name)."</div>"; ?><br />
             <?php endforeach; ?>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-5 m-1">
+    <div class="col-md-6 m-1">
       <div class="card">
         <div class="card-header">
           Menu
@@ -26,11 +26,11 @@ require 'partials/head.php';
         <div class="card-body">
           <?php
           foreach ($pizzas as $pizza){
-          echo "<div class='float-left'><span class='font-weight-bold'>$pizza->pizza_number. $pizza->pizza_name </span><span class='text-secondary'>";
+          echo "<div class='float-left'><span class='font-weight-bold'>". $pizza->pizza_number.". " .ucwords($pizza->pizza_name) ." </span><span class='text-secondary'>";
           foreach ($toppings as $topping) {
           if ($topping->pizza_number == $pizza->pizza_number){
           $ptopping = $topping->topping_name;
-          echo "$ptopping ";
+          echo ucwords($ptopping." ");
           }
           }
           echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";

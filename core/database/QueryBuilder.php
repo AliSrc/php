@@ -141,7 +141,6 @@ class QueryBuilder{
           );
 
           CREATE TABLE IF NOT EXISTS pizzas (
-          pizza_id int(11) NOT NULL,
           pizza_number int(11) NOT NULL,
           pizza_name varchar(30) NOT NULL,
           price varchar(4) NOT NULL,
