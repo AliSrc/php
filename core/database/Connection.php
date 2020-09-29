@@ -14,8 +14,8 @@ class Connection
                 $config['dbpassword'],
                 $config['options']
             );
-        } catch (PDOException $e) {
-            die("Could not connect:");
+        } catch (\PDOException $e) {
+            die("Could not connect: ". $e->getMessage());
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-
+// die(phpinfo());
 use Ali\Core\{Router, Request};
 
 require 'vendor/autoload.php';

@@ -35,22 +35,24 @@ require 'partials/head.php';
               <?php endforeach; ?>
             </select>
           </div>
-	  <button type="submit" class="btn btn-primary">Submit</button>
-
-	    <a href="/addtopping"><button type="button" class="btn btn-primary">Add Toppings</button></a>
-      <a href="/category"><button type="button" class="btn btn-primary">Add Category</button></a>
-	    <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="topping">Toppings</label><br />
             <?php foreach ($toppings as $topping) : ?>
-            <input type="checkbox" name="tops[]" value="<?= $topping->topping_id ?>"/> <?= $topping->topping_name ?> <br />
+            <input type="checkbox" id="<?= $topping->topping_id ?>" name="tops[]" value="<?= $topping->topping_id ?>"/> <label for="<?= $topping->topping_id ?>"> <?= $topping->topping_name ?> </label><br />
             <?php endforeach; ?>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
-  </div>
-  <?php
-  require 'partials/footer.php';
+        <div class="row">
+          <div class="col-xs-12 button-wrapper mb-3 m-1">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/addtopping"><button type="button" class="btn btn-primary">Add Toppings</button></a>
+            <a href="/category"><button type="button" class="btn btn-primary">Add Category</button></a>
+            <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
+          </div>
+        </div>
+      </form>
+      <?php
+      require 'partials/footer.php';

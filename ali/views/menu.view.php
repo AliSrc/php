@@ -4,8 +4,8 @@ require 'partials/head.php';
 ?>
 <div class="container">
   <div class="row justify-content-around">
-    <div class="col-md-3">
-      <div class="card mr-2">
+    <div class="col-md-3 m-1">
+      <div class="card">
         <div class="card-header">
           Kategorier
         </div>
@@ -18,8 +18,8 @@ require 'partials/head.php';
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class=" card mr-2 ml-2">
+    <div class="col-md-5 m-1">
+      <div class="card">
         <div class="card-header">
           Menu
         </div>
@@ -39,8 +39,8 @@ require 'partials/head.php';
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card ml-2">
+    <div class="col-md-3 m-1">
+      <div class="card">
         <div class="card-header">
           Kurv
         </div>
@@ -50,10 +50,10 @@ require 'partials/head.php';
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col mt-2">
-      <a href="/addmenu"><button class="btn btn-primary">Add Product?</button></a>
-    </div>
-  </div>
+        <div class="row">
+          <div class="col-xs-12 button-wrapper mb-3 m-1">
+        <a href="/addmenu"><button class="btn mt-2 btn-primary">Add Product?</button></a>
+        </div>
+      </div>
   <?php
   require 'partials/footer.php';
