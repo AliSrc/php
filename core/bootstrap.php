@@ -1,14 +1,19 @@
 <?php
 
 use Ali\Core\App;
-use Ali\Core\Database\{QueryBuilder, Connection};
+use Ali\Core\Database\Connection;
+use Ali\Core\Database\PizzaQuery;
+use Ali\Core\Database\QueryBuilder;
 require 'functions.php';
 
 App::bind('config', require 'config.php');
 
 App::bind('database', new QueryBuilder(
-    Connection::make(App::get('config')['database'])
-));
+    Connection::make(App::get('config')['database'])));
+
+/* Queires for pizzas */
+App::bind('pizzaQuery', new PizzaQuery(
+    Connection::make(App::get('config')['database'])));
 
 function view($name, $data = [])
 {
@@ -17,7 +22,8 @@ function view($name, $data = [])
     return require "ali/views/{$name}.view.php";
 }
 
-function redirect($path)
+function redirect($path, $data = [])
 {
-header("Location: /{$path}");
+    extract($data);
+    header("Location: /{$path}");
 }

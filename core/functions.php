@@ -2,7 +2,7 @@
 
 /*
 Die & Dump. var_dump function in prettier version.
-*/
+ */
 function dd($data)
 {
     echo '<pre>';
@@ -12,14 +12,13 @@ function dd($data)
 
 /*
 Used to highlight the active section in Navbar.
-*/
+ */
 function isActive($isActive)
 {
-    if(trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/') == $isActive)
-        {
-            $result = 'active';
-        } else {
-            $result = '';
-        }
-        return  "{$result}";
+    if (trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/') == $isActive) {
+        $result = 'active';
+    } else {
+        $result = '';
+    }
+    return "{$result}";
 }

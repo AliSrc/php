@@ -2,7 +2,8 @@
 
 namespace Ali\Core;
 
-class Request{
+class Request
+{
 
     public static function uri()
     {

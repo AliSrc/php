@@ -9,17 +9,20 @@ class ComposerStaticInit7409f7479338ccc24055ce2afe150376
     public static $classMap = array (
         'Ali\\Controllers\\MenuController' => __DIR__ . '/../..' . '/ali/controllers/MenuController.php',
         'Ali\\Controllers\\PagesController' => __DIR__ . '/../..' . '/ali/controllers/PagesController.php',
+        'Ali\\Controllers\\PizzaController' => __DIR__ . '/../..' . '/ali/controllers/PizzaController.php',
         'Ali\\Controllers\\RegistrationController' => __DIR__ . '/../..' . '/ali/controllers/RegistrationController.php',
         'Ali\\Controllers\\UsersController' => __DIR__ . '/../..' . '/ali/controllers/UsersController.php',
         'Ali\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'Ali\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
+        'Ali\\Core\\Database\\PizzaQuery' => __DIR__ . '/../..' . '/core/database/PizzaQuery.php',
         'Ali\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'Ali\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'Ali\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
-        'Ali\\Models\\Project' => __DIR__ . '/../..' . '/ali/models/Project.php',
         'ComposerAutoloaderInit7409f7479338ccc24055ce2afe150376' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit7409f7479338ccc24055ce2afe150376' => __DIR__ . '/..' . '/composer/autoload_static.php',
+        'Pizzas' => __DIR__ . '/../..' . '/core/database/Pizzas.php',
+        'Toppings' => __DIR__ . '/../..' . '/core/database/Toppings.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,19 +1,19 @@
 <?php
 
 namespace Ali\Core;
+
 use \Exception;
-use Ali\Controllers\PagesController;
 
 class Router
 {
     public $routes = [
         'GET' => [],
-        'POST' => []
+        'POST' => [],
     ];
 
     public static function load($file)
     {
-        $router= new static;
+        $router = new static;
 
         require $file;
 
@@ -43,11 +43,11 @@ class Router
 
     protected function callAction($controller, $action)
     {
-        $controller =  "Ali\\Controllers\\{$controller}";
+        $controller = "Ali\\Controllers\\{$controller}";
         $controller = new $controller;
 
         $controllerObject = new $controller;
-        if(! method_exists($controllerObject, $action)) {
+        if (!method_exists($controllerObject, $action)) {
             throw new Exception(
                 "{$controllerObject} does not respond to the {$action} action."
             );

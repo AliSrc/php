@@ -1,55 +1,19 @@
 <?php
 
 namespace Ali\Core\Database;
-use PDO;
-require 'Pizzas.php';
-require 'Toppings.php';
 
-class QueryBuilder{
+use PDO;
+
+require_once 'Pizzas.php';
+require_once 'Toppings.php';
+
+class QueryBuilder
+{
     protected $pdo;
 
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
-    }
-
-    public function selectToppings($table)
-    {
-        $statement = $this->pdo->prepare("select *
-          from $table
-          left join pizza_topping
-          on pizza_topping.topping_id = toppings.topping_id
-          ");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS, 'Toppings');
-    }
-
-    public function selectPizzas($table)
-    {
-        $statement = $this->pdo->prepare("select * from $table");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS, 'Pizzas');
-    }
-
-    public function selectCategories($table)
-    {
-        $statement = $this->pdo->prepare("select * from {$table}");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS);
-    }
-    public function selectTop($table)
-    {
-        $statement = $this->pdo->prepare("select topping_id, topping_name, price from {$table}");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function insertUser($table, $name, $lastname, $email, $phone, $password)
@@ -59,59 +23,23 @@ class QueryBuilder{
         $result->execute();
         $numberofRows = $result->fetchColumn();
 
-        if ($numberofRows < 1){
-        $statement = $this->pdo->prepare(
-                          "CREATE TABLE IF NOT EXISTS {$table} (
+        if ($numberofRows < 1) {
+            $statement = $this->pdo->prepare(
+                "CREATE TABLE IF NOT EXISTS {$table} (
                           ID int(11) AUTO_INCREMENT,
                           name varchar(255) NOT NULL,
                           PRIMARY KEY  (ID));
                           /* Creating table if not exists ends here and Insert going progressed*/
                           INSERT INTO {$table} (name, lastname, email, phone, password)
                           VALUES ('{$name}', '{$lastname}', '{$email}', '{$phone}', md5('{$password}'));"
-                      );
-        $statement->execute();
+            );
+            $statement->execute();
         } else {
-            $errorMessage= "This username is already taken!";
+            $errorMessage = "This username is already taken!";
         }
     }
 
-  public function insertPizza($table, $pizza_number, $pizza_name, $price, $category, $tops)
-      {
-          $statement = $this->pdo->prepare(
-            "INSERT INTO {$table} (pizza_number, pizza_name, price, category)
-            VALUES ('{$pizza_number}', '{$pizza_name}', '{$price}', '{$category}');
-            ");
-          $statement->execute();
-
-          foreach ($tops as $topi) {
-            $topping = $topi;
-            $statement1 = $this->pdo->prepare(
-              "INSERT INTO pizza_topping (pizza_number, topping_id)
-              VALUES ('{$pizza_number}', '{$topping}');"
-            );
-            $statement1->execute();
-            }
-      }
-
-  public function insertTopping($table, $topping, $price)
-      {
-          $statement = $this->pdo->prepare(
-            "INSERT INTO {$table} (topping_name, price)
-            VALUES ('{$topping}', '{$price}');"
-          );
-          $statement->execute();
-      }
-
-      public function insertCategory($table, $category)
-      {
-          $statement = $this->pdo->prepare(
-            "INSERT INTO {$table} (category_name)
-            VALUES ('{$category}');"
-          );
-          $statement->execute();
-      }
-
-   public function selectAll($table)
+    public function selectAll($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
 
@@ -120,9 +48,8 @@ class QueryBuilder{
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-
-  public function firstInstall()
-      {
+    public function firstInstall()
+    {
         $statement = $this->pdo->prepare("
           CREATE TABLE IF NOT EXISTS users (
           id int(11) NOT NULL AUTO_INCREMENT,
@@ -166,5 +93,5 @@ class QueryBuilder{
           );
       ");
         $statement->execute();
-      }
+    }
 }

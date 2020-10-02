@@ -1,19 +1,20 @@
 <?php
 
 namespace Ali\Controllers;
+
 use Ali\Core\App;
 
 class RegistrationController
- {
+{
     public function index()
     {
-       return view('registration');
+        return view('registration');
     }
 
     /**
      * @throws \Exception
      */
-    public function store()
+    public function registerUser()
     {
         $name = $_POST['name'];
         $lastname = $_POST['lastname'];
@@ -26,35 +27,34 @@ class RegistrationController
             }
         }
 
-        if($valid == true) {
+        if ($valid == true) {
             if ($_POST['password'] != $_POST['confirm_password']) {
                 $errorMessage[] = 'Passwords should be same.';
                 $valid = false;
-            }else {
+            } else {
                 $password = $_POST['password'];
             }
 
-            if (! isset($error_message)) {
-                if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            if (!isset($error_message)) {
+                if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                     $errorMessage[] = "Invalid email address.";
                     $valid = false;
-                }else{
+                } else {
                     $email = $_POST['email'];
                 }
             }
-            if (!preg_match("/^[a-zA-Z0-9]*$/", $name)){
+            if (!preg_match("/^[a-zA-Z0-9]*$/", $name)) {
                 $errorMessage[] = 'Insert a valid username';
-            }else{
+            } else {
                 $name = $_POST['name'];
             }
-        }
-        else {
+        } else {
             $errorMessage[] = "All fields are required.";
         }
 
         if ($valid == false) {
             return redirect('registration', compact($errorMessage));
-        }else {
+        } else {
             $message = "User created succesfully!";
             App::get('database')->insertUser('users', $name, $lastname, $email, $phone, $password);
             $message = "User created succesfully!";

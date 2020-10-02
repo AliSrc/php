@@ -8,11 +8,16 @@ require 'partials/head.php';
       <form method="POST" action="/addtopping" enctype="multipart/form-data ">
         <div class="form-group">
           <label>Topping Name</label>
-          <input type="text" class="form-control" name="topping" id="topping" placeholder="Enter Topping name" autofocus>
+          <input type="text" class="form-control" name="topping" id="topping" placeholder="Enter Topping name" autofocus >
+          <?php
+          if (!empty($errorMessage)) {
+              echo "No errors" .$errorMessage;
+          }
+          ?>
         </div>
         <div class="form-group">
           <label>Price</label>
-          <input type="text" class="form-control" name="price" id="price" placeholder="Enter Topping Price">
+          <input type="text" class="form-control" name="price" id="price" placeholder="Enter Topping Price" >
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>

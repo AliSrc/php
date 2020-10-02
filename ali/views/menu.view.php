@@ -28,10 +28,10 @@ require 'partials/head.php';
           foreach ($pizzas as $pizza){
           echo "<div class='float-left'><span class='font-weight-bold'>". $pizza->pizza_number.". " .ucwords($pizza->pizza_name) ." </span><span class='text-secondary'>";
           foreach ($toppings as $topping) {
-          if ($topping->pizza_number == $pizza->pizza_number){
-          $ptopping = $topping->topping_name;
-          echo ucwords($ptopping." ");
-          }
+            if ($topping->pizza_number == $pizza->pizza_number){
+            $ptopping = ucwords($topping->topping_name. " ");
+            echo $ptopping;
+            }
           }
           echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";
           }
