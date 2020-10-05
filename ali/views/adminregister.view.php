@@ -7,10 +7,8 @@ require 'partials/head.php';
 </div>
 <div class="row justify-content-center">
     <?php
-if (!empty($errorMessage)) {
-    foreach ($errorMessage as $err) {
-        echo "<h8>$err</h8>";
-    }
+if (isset($errorMessage)) {
+	echo "<h8>$errorMessage</h8>";
 }
 ?>
 </div>

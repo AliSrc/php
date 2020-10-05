@@ -17,7 +17,7 @@ App::bind('database', new QueryBuilder(
 App::bind('pizzaQuery', new PizzaQuery(
 	Connection::make(App::get('config')['database'])));
 
-App::bind('AdminQuery', new AdminQuery(
+App::bind('adminQuery', new AdminQuery(
 	Connection::make(App::get('config')['database'])));
 
 function view($name, $data = []) {

@@ -19,4 +19,20 @@ class AdminQuery {
 		return $statement->fetchAll(PDO::FETCH_CLASS, 'Users');
 	}
 
+	public function insertAdmin($table, $name, $lastname, $username, $email, $phone, $password) {
+		$sqlcheck = "SELECT COUNT(username) FROM {$table} WHERE username='{$username}'";
+		$result = $this->pdo->prepare($sqlcheck);
+		$result->execute();
+		$numberofRows = $result->fetchColumn();
+
+		if ($numberofRows < 1) {
+			$statement = $this->pdo->prepare("
+               INSERT INTO {$table} (name, lastname, username, email, phone, password, created_at)
+               VALUES ('{$name}', '{$lastname}', '{$username}', '{$email}', '{$phone}', md5('{$password}'), NOW());
+               ");
+			$statement->execute();
+		} else {
+			$errorMessage = "This username is already taken!";
+		}
+	}
 }
