@@ -13,6 +13,7 @@ class ComposerStaticInit7409f7479338ccc24055ce2afe150376
         'Ali\\Controllers\\RegistrationController' => __DIR__ . '/../..' . '/ali/controllers/RegistrationController.php',
         'Ali\\Controllers\\UsersController' => __DIR__ . '/../..' . '/ali/controllers/UsersController.php',
         'Ali\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
+        'Ali\\Core\\Database\\AdminQuery' => __DIR__ . '/../..' . '/core/database/AdminQuery.php',
         'Ali\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'Ali\\Core\\Database\\PizzaQuery' => __DIR__ . '/../..' . '/core/database/PizzaQuery.php',
         'Ali\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',

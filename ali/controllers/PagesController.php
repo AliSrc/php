@@ -21,6 +21,34 @@ class PagesController {
 		return view('menu');
 	}
 
+	public function admin() {
+		// $users = App::get('AdminQuery')->adminUsers('users');
+		return view('admin');
+
+		// $users = App::get('database')->selectAll('users');
+		// return view('admin', compact('users'));
+	}
+
+	public function adminLogin() {
+		$admin = $_POST['admin'];
+		$password = $_POST['adminPassword'];
+		$user = App::get('database')->selectAll('users');
+		var_dump($user);
+		// foreach ($users as $user) {
+		// 	if ($admin == $user->username && $password == $user->password) {
+		// 		die('Logged in');
+		// 	} else {
+		// 		die('FAIL!!!');
+		// 	}
+		// }
+		return view('admin', compact('users'));
+	}
+
+	public function dashboard() {
+		$user = App::get('database')->selectAll('users');
+		return view('dashboard', compact('user'));
+	}
+
 	public function firstInstall() {
 		return view('firstInstall');
 	}

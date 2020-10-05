@@ -12,6 +12,7 @@ return array(
     'Ali\\Controllers\\RegistrationController' => $baseDir . '/ali/controllers/RegistrationController.php',
     'Ali\\Controllers\\UsersController' => $baseDir . '/ali/controllers/UsersController.php',
     'Ali\\Core\\App' => $baseDir . '/core/App.php',
+    'Ali\\Core\\Database\\AdminQuery' => $baseDir . '/core/database/AdminQuery.php',
     'Ali\\Core\\Database\\Connection' => $baseDir . '/core/database/Connection.php',
     'Ali\\Core\\Database\\PizzaQuery' => $baseDir . '/core/database/PizzaQuery.php',
     'Ali\\Core\\Database\\QueryBuilder' => $baseDir . '/core/database/QueryBuilder.php',
