@@ -6,8 +6,11 @@ require 'partials/head.php';
     <h4>Welcome</h4>
 </div>
 <div class="row">
-    <form>
-    </form>
+    <?php
+if (isset($errorMessage)) {
+    echo "<p>$errorMessage</p> ";
+}
+?>
 </div>
 <?php
 require 'partials/footer.php';

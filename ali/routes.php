@@ -9,6 +9,9 @@ $router->get('dashboard', 'PagesController@dashboard');
 $router->get('admin', 'PagesController@admin');
 $router->post('admin', 'PagesController@adminLogin');
 
+$router->get('adminregister', 'PagesController@adminregister');
+$router->post('adminregister', 'PagesController@registerAdmin');
+
 $router->get('firstInstall', 'PagesController@firstInstall');
 $router->post('firstInstall', 'PagesController@firstInstallStore');
 
