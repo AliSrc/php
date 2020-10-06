@@ -10,7 +10,6 @@ require 'partials/head.php';
     <?php if (!isset($_SESSION['admin'])): ?>
       <h3>You are now allowed to display this page!</h3>
       <?php else: ?>
-
 <div class="col-md-2">
       <?php
 echo "<label for='topping'>Pizzas</label><br />";

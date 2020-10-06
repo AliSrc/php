@@ -14,10 +14,11 @@ App::bind('config', require 'config.php');
 App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database'])));
 
-/* Queires for pizzas */
+/* Use Queires for pizzas */
 App::bind('pizzaQuery', new PizzaQuery(
     Connection::make(App::get('config')['database'])));
 
+/* Use Queries for Admins*/
 App::bind('adminQuery', new AdminQuery(
     Connection::make(App::get('config')['database'])));
 
