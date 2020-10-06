@@ -5,6 +5,7 @@ $router->get('about', 'PagesController@about');
 $router->get('contact', 'PagesController@contact');
 $router->get('menu', 'PagesController@menu');
 $router->get('dashboard', 'PagesController@dashboard');
+$router->get('logout', 'PagesController@logout');
 
 $router->get('admin', 'PagesController@admin');
 $router->post('admin', 'PagesController@adminLogin');

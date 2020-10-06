@@ -7,26 +7,29 @@ use Ali\Core\Database\Connection;
 use Ali\Core\Database\PizzaQuery;
 use Ali\Core\Database\QueryBuilder;
 require 'functions.php';
+session_start();
 
 App::bind('config', require 'config.php');
 
 App::bind('database', new QueryBuilder(
-	Connection::make(App::get('config')['database'])));
+    Connection::make(App::get('config')['database'])));
 
 /* Queires for pizzas */
 App::bind('pizzaQuery', new PizzaQuery(
-	Connection::make(App::get('config')['database'])));
+    Connection::make(App::get('config')['database'])));
 
 App::bind('adminQuery', new AdminQuery(
-	Connection::make(App::get('config')['database'])));
+    Connection::make(App::get('config')['database'])));
 
-function view($name, $data = []) {
-	extract($data);
+function view($name, $data = [])
+{
+    extract($data);
 
-	return require "ali/views/{$name}.view.php";
+    return require "ali/views/{$name}.view.php";
 }
 
-function redirect($path, $data = []) {
-	extract($data);
-	header("Location: /{$path}");
+function redirect($path, $data = [])
+{
+    extract($data);
+    header("Location: /{$path}");
 }

@@ -12,5 +12,6 @@ if (isset($errorMessage)) {
 }
 ?>
 </div>
+
 <?php
 require 'partials/footer.php';
