@@ -15,7 +15,7 @@ require 'partials/head.php';
       <?php
 echo "<label for='topping'>Pizzas</label><br />";
 foreach ($pizzas as $pizza) {
-    echo "<span class='font-weight-bold'>" . $pizza->pizza_number . ". " . ucwords("$pizza->pizza_name") . "<br />";
+    echo "<span class='font-weight-bold'>" . $pizza->pizzaNumber . ". " . ucwords("$pizza->pizzaName") . "<br />";
 }
 
 ?>
@@ -24,11 +24,11 @@ foreach ($pizzas as $pizza) {
         <form method="POST" action="/addmenu" enctype="multipart/form-data">
           <div class="form-group">
             <label>Number</label>
-            <input type="text" class="form-control" name="pizza_number" id="pizza_number" placeholder="Enter Pizza Number" autofocus required>
+            <input type="text" class="form-control" name="pizzaNumber" id="pizzaNumber" placeholder="Enter Pizza Number" autofocus required>
           </div>
           <div class="form-group">
             <label>Pizza Name</label>
-            <input type="text" class="form-control" name="pizza_name" id="pizza_name" placeholder="Enter Pizza Name" required>
+            <input type="text" class="form-control" name="pizzaName" id="pizzaName" placeholder="Enter Pizza Name" required>
           </div>
           <div class="form-group">
             <label>Price</label>

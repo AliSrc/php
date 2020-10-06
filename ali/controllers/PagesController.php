@@ -87,12 +87,12 @@ class PagesController
         $password = md5($_POST['adminPassword']);
         $users = App::get('database')->selectAll('admins');
         foreach ($users as $user) {
-            if (!$admin == $user->username && $password == $user->password) {
-                $errorMessage = "Wrong Username or Password";
-                return view('admin', compact('users'));
-            } else {
+            if ($admin == $user->username && $password == $user->password) {
                 $_SESSION['admin'] = $admin;
                 return view('dashboard');
+            } else {
+                $errorMessage = "Wrong Username or Password";
+                return view('admin', compact('errorMessage'));
             }
         }
     }

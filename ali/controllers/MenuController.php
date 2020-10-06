@@ -44,8 +44,8 @@ class MenuController
 
     public function storeProduct()
     {
-        $pizza_name = $_POST['pizza_name'];
-        $pizza_number = $_POST['pizza_number'];
+        $pizzaNumber = $_POST['pizzaNumber'];
+        $pizzaName = $_POST['pizzaName'];
         $price = $_POST['price'];
         $category = $_POST['category'];
         $tops = $_POST['tops'];
@@ -58,16 +58,16 @@ class MenuController
             }
         }
 
-        if (!preg_match("/^[a-zA-Z]*$/", $pizza_name)) {
+        if (!preg_match("/^[a-zA-Z]*$/", $pizzaName)) {
             $errorMessage[] = 'Insert a valid pizza name';
         } else {
-            $pizza_name = $_POST['pizza_name'];
+            $pizzaName = $_POST['pizzaName'];
         }
 
-        if (!preg_match("/^[0-9]*$/", $pizza_number)) {
+        if (!preg_match("/^[0-9]*$/", $pizzaNumber)) {
             $errorMessage[] = 'Insert a valid pizza number';
         } else {
-            $pizza_number = $_POST['pizza_number'];
+            $pizzaNumber = $_POST['pizzaNumber'];
         }
         if (!preg_match("/^[0-9]*$/", $price)) {
             $errorMessage[] = 'Insert a valid price';
@@ -77,7 +77,7 @@ class MenuController
         if ($valid == false) {
             return redirect('addmenu', compact($errorMessage));
         } else {
-            App::get('pizzaQuery')->insertpizza('pizzas', $pizza_number, $pizza_name, $price, $category, $tops);
+            App::get('pizzaQuery')->insertpizza('pizzas', $pizzaNumber, $pizzaName, $price, $category, $tops);
             return redirect('addmenu');
         }
     }
