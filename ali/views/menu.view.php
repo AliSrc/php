@@ -3,6 +3,9 @@ $title = "Menu | Pizza";
 require 'partials/head.php';
 ?>
 <div class="container">
+  <div class="row m-1">
+    <h3>Menu</h3>
+  </div>
   <div class="row justify-content-around">
     <div class="col-md-2 m-1">
       <div class="card">
@@ -11,9 +14,9 @@ require 'partials/head.php';
         </div>
         <div class="card-body bg-white">
           <div class="card-link">
-            <?php foreach ($categories as $category) : ?>
-            <?= "<div class='float-left'>". ucwords($category->category_name)."</div>"; ?><br />
-            <?php endforeach; ?>
+            <?php foreach ($categories as $category): ?>
+            <?="<div class='float-left'>" . ucwords($category->category_name) . "</div>";?><br />
+            <?php endforeach;?>
           </div>
         </div>
       </div>
@@ -25,17 +28,17 @@ require 'partials/head.php';
         </div>
         <div class="card-body">
           <?php
-          foreach ($pizzas as $pizza){
-          echo "<div class='float-left'><span class='font-weight-bold'>". $pizza->pizza_number.". " .ucwords($pizza->pizza_name) ." </span><span class='text-secondary'>";
-          foreach ($toppings as $topping) {
-            if ($topping->pizza_number == $pizza->pizza_number){
-            $ptopping = ucwords($topping->topping_name. " ");
+foreach ($pizzas as $pizza) {
+    echo "<div class='float-left'><span class='font-weight-bold'>" . $pizza->pizza_number . ". " . ucwords($pizza->pizza_name) . " </span><span class='text-secondary'>";
+    foreach ($toppings as $topping) {
+        if ($topping->pizza_number == $pizza->pizza_number) {
+            $ptopping = ucwords($topping->topping_name . " ");
             echo $ptopping;
-            }
-          }
-          echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";
-          }
-          ?>
+        }
+    }
+    echo "</div></span><div class='float-right'>$pizza->price,-</div><br />";
+}
+?>
         </div>
       </div>
     </div>
@@ -56,4 +59,4 @@ require 'partials/head.php';
         </div>
       </div>
   <?php
-  require 'partials/footer.php';
+require 'partials/footer.php';

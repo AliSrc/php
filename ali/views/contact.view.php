@@ -1,9 +1,9 @@
 <?php
-$title = "PHP Learning | Contact";
+$title = "Contact";
 require 'partials/head.php';
 ?>
 <div class="row">
-    <h1>Contact us</h1>
+    <h3>Contact us</h3>
 </div>
 <?php
 require 'partials/footer.php';

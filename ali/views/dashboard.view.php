@@ -2,22 +2,19 @@
 $title = "PHP Learning | Admin Dashboard";
 require 'partials/head.php';
 ?>
-<?php if (!isset($_SESSION['username'])): ?>
 <div class="row">
-    <h1>Dashboard</h1>
+    <h3>Dashboard</h3>
 </div>
+<?php if (!isset($_SESSION['admin'])): ?>
 <div class="row">
     <p>You are not logged in!</p>
 </div>
 <?php else: ?>
 <div class="row">
-    <h1>Dashboard</h1>
-</div>
-<div class="row">
-    <?php if (!$_SESSION['username']): ?>
+    <?php if (!$_SESSION['admin']): ?>
     <p>You are not logged in!</p>
     <?php else: ?>
-    <p>Hello <?=$_SESSION['username'];?> </p>
+    <p>Hello <?=$_SESSION['admin'];?> </p>
 </div>
 <div class="row">
     <p><a href="logout">Log out?</a></p>

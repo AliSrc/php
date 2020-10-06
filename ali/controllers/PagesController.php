@@ -91,7 +91,7 @@ class PagesController
                 $errorMessage = "Wrong Username or Password";
                 return view('admin', compact('users'));
             } else {
-                $_SESSION['username'] = $admin;
+                $_SESSION['admin'] = $admin;
                 return view('dashboard');
             }
         }

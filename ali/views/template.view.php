@@ -3,7 +3,7 @@ $title = "PHP Learning | About";
 require 'partials/head.php';
 ?>
 <div class="row">
-    <h1>Template for views. </h1>
+    <h3>Template for views. </h3>
 </div>
 <?php
 require 'partials/footer.php';

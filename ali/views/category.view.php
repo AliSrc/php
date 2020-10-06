@@ -1,16 +1,19 @@
 <?php
-$title = "Ali Sarac Website";
+$title = "Categories";
 require 'partials/head.php';
 ?>
 <div class="container">
   <div class="row justify-content-around">
+        <?php if (!isset($_SESSION['admin'])): ?>
+      <h3>You are now allowed to display this page!</h3>
+      <?php else: ?>
     <div class="col-md-2">
       <?php
-      echo "<label for='topping'>Pizzas</label><br />";
-      foreach ($categories as $category){
-      echo "<span class='font-weight-bold'>$category->category_id. $category->category_name<br />";
-        }
-        ?>
+echo "<label for='topping'>Pizzas</label><br />";
+foreach ($categories as $category) {
+    echo "<span class='font-weight-bold'>$category->category_id. $category->category_name<br />";
+}
+?>
       </div>
       <div class="col-md-10">
         <form method="POST" action="/category" enctype="multipart/form-data ">
@@ -24,7 +27,8 @@ require 'partials/head.php';
         <a href="/menu"><button type="button" class="btn btn-primary">Menu</button></a>
         </div>
         </form>
+      <?php endif?>
     </div>
   </div>
   <?php
-  require 'partials/footer.php';
+require 'partials/footer.php';

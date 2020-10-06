@@ -3,7 +3,7 @@ $title = "PHP Learning | Logged out";
 require 'partials/head.php';
 ?>
 <div class="row">
-    <h1>You are now logged out! </h1>
+    <h3>You are now logged out! </h3>
 </div>
 <?php
 session_unset();

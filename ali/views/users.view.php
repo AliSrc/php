@@ -4,13 +4,13 @@ require 'partials/head.php';
 ?>
 <div class="row">
   <div class="col">
-    <h1>Users</h1>
+    <h3>Users</h3>
   </div>
   <div>
     <?php
-    if (isset($message)) { ?>
+if (isset($message)) {?>
     <p><?php echo $message; ?></p>
-    <?php } ?>
+    <?php }?>
   </div>
 </div>
 <div class="row">
@@ -21,9 +21,9 @@ require 'partials/head.php';
       </div>
       <div class="card-body bg-white">
         <div class="card-link">
-          <?php foreach ($users as $user) : ?>
-          <?= "$user->id: $user->name $user->lastname <br />"; ?>
-          <?php endforeach; ?>
+          <?php foreach ($users as $user): ?>
+          <?="$user->id: $user->name $user->lastname <br />";?>
+          <?php endforeach;?>
         </div>
       </div>
     </div>
@@ -34,4 +34,4 @@ require 'partials/head.php';
     <a href="/registration"><button class="btn btn-primary">New User?</button></a>
   </div>
   <?php
-  require 'partials/footer.php';
+require 'partials/footer.php';

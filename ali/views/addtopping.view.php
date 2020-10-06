@@ -1,19 +1,22 @@
 <?php
-$title = "Ali Sarac Website | Add Toppings";
+$title = "Add Toppings";
 require 'partials/head.php';
 ?>
 <div class="container">
   <div class="row justify-content-around">
+        <?php if (!isset($_SESSION['admin'])): ?>
+      <h3>You are now allowed to display this page!</h3>
+      <?php else: ?>
     <div class="col-md-7">
       <form method="POST" action="/addtopping" enctype="multipart/form-data ">
         <div class="form-group">
           <label>Topping Name</label>
           <input type="text" class="form-control" name="topping" id="topping" placeholder="Enter Topping name" autofocus >
           <?php
-          if (!empty($errorMessage)) {
-              echo "No errors" .$errorMessage;
-          }
-          ?>
+if (!empty($errorMessage)) {
+    echo "No errors" . $errorMessage;
+}
+?>
         </div>
         <div class="form-group">
           <label>Price</label>
@@ -32,13 +35,14 @@ require 'partials/head.php';
             </div>
             <div class="card-body">
               <?php foreach ($toppings as $topping) {
-              echo "<div class='float-left'>$topping->topping_name </div><div class='float-right'>$topping->price</div><br />";
-              } ?>
+    echo "<div class='float-left'>$topping->topping_name </div><div class='float-right'>$topping->price</div><br />";
+}?>
             </div>
           </div>
         </div>
       </form>
     </div>
+  <?php endif?>
   </div>
 </div>
 <?php

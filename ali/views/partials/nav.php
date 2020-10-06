@@ -11,6 +11,10 @@
       <a class="nav-item nav-link <?php echo isActive('menu') ?>" href="/menu">Menu</a>
       <a class="nav-item nav-link <?php echo isActive('about') ?>" href="/about">About Us</a>
       <a class="nav-item nav-link <?php echo isActive('contact') ?>" href="/contact">Contact Us</a>
+      <?php if (isset($_SESSION['admin'])): ?>
+      <a class="nav-item nav-link <?php echo isActive('dashboard') ?>" href="/dashboard">Admin</a>
+      <a class="nav-item nav-link <?php echo isActive('logout') ?>" href="/logout">Logout</a>
+      <?php endif?>
     </div>
   </div>
 </nav>

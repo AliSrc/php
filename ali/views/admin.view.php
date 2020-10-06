@@ -5,7 +5,7 @@ require 'partials/head.php';
 <body>
 
     <div class="row">
-        <h2>Admin panel</h2>
+        <h3>Admin panel</h3>
         <?php
 // var_dump($user);
 ?>

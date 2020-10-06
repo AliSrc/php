@@ -1,14 +1,21 @@
 <?php
-$title = "Ali Sarac Website";
+$title = "Add Product";
 require 'partials/head.php';
 ?>
 <div class="container">
+  <div class="row m-1">
+    <h3>Add Product</h3>
+  </div>
   <div class="row justify-content-around">
-    <div class="col-md-2">
+    <?php if (!isset($_SESSION['admin'])): ?>
+      <h3>You are now allowed to display this page!</h3>
+      <?php else: ?>
+
+<div class="col-md-2">
       <?php
 echo "<label for='topping'>Pizzas</label><br />";
 foreach ($pizzas as $pizza) {
-	echo "<span class='font-weight-bold'>" . $pizza->pizza_number . ". " . ucwords("$pizza->pizza_name") . "<br />";
+    echo "<span class='font-weight-bold'>" . $pizza->pizza_number . ". " . ucwords("$pizza->pizza_name") . "<br />";
 }
 
 ?>
@@ -55,5 +62,8 @@ foreach ($pizzas as $pizza) {
           </div>
         </div>
       </form>
+
+    <?php endif?>
+
       <?php
 require 'partials/footer.php';

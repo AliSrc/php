@@ -3,7 +3,7 @@ $title = "Ali Sarac Website";
 require 'partials/head.php';
 ?>
 <div class="row">
-    <h4>Welcome</h4>
+    <h3>Welcome</h3>
 </div>
 <div class="row">
     <?php
@@ -12,6 +12,5 @@ if (isset($errorMessage)) {
 }
 ?>
 </div>
-
 <?php
 require 'partials/footer.php';
