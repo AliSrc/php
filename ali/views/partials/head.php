@@ -12,8 +12,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/style/style.css">
     <script src="https://kit.fontawesome.com/fec6e4802b.js" crossorigin="anonymous"></script>
+    <script src="js/vue.js"></script>
 </head>
 <body class="bg-light">
     <?php include_once 'nav.php'?>
-    <div class="container-fluid m-auto">
+    <div class="container-fluid m-auto" id="root">
         <div class="container mt-5">

@@ -2,4 +2,4 @@ config.php
 .phpintel
 .DS_Store
 .php_cs.cache
-
+node_modules
