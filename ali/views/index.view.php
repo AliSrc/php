@@ -5,18 +5,15 @@ require 'partials/head.php';
 <div class="row">
     <h3>Welcome</h3>
 </div>
-<div class="row" id="root">
-    <input type="text" id="input" v-model="message">
-    <p>Value of this input: {{ message }}</p>
-<script>
-    new Vue({
-        el:'#root',
-        data : {
-            message :'Hello World'
-        }
-    })
-</script>
-    <?php
+<div id="root">
+    <div class="row">
+        <input type="text" autofocus id="input" v-model="message" />
+    </div>
+    <div class="row">
+        <p name="input">Value of this input: {{ message }}</p>
+    </div>
+
+        <?php
 if (isset($errorMessage)) {
     echo "<p>$errorMessage</p> ";
 }
