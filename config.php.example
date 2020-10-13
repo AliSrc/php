@@ -7,9 +7,9 @@ extention from this from, to connect and run URI/firstInstall i order to get it 
 */
 return[
     'database' => [
-        'name' => '',
-        'username' => '',
-        'password' => '',
+        'dbname' => '',
+        'dbusername' => '',
+        'dbpassword' => '',
         'connection' => 'mysql:host=127.0.0.1',
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
