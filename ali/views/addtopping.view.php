@@ -8,11 +8,14 @@ require 'partials/head.php';
       <form method="POST" action="/addtopping" enctype="multipart/form-data ">
         <div class="form-group">
           <label>Topping Name</label>
-          <input type="text" class="form-control" name="topping" id="topping" placeholder="Enter Topping name" autofocus>
+          <input type="text" class="form-control" name="topping" id="topping" placeholder="Enter Topping name" autofocus >
+          <?php if (!empty($errorMessage)) {
+	echo "No errors" . $errorMessage;
+}?>
         </div>
         <div class="form-group">
           <label>Price</label>
-          <input type="text" class="form-control" name="price" id="price" placeholder="Enter Topping Price">
+          <input type="text" class="form-control" name="price" id="price" placeholder="Enter Topping Price" >
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -27,8 +30,8 @@ require 'partials/head.php';
             </div>
             <div class="card-body">
               <?php foreach ($toppings as $topping) {
-              echo "<div class='float-left'>$topping->topping_name </div><div class='float-right'>$topping->price</div><br />";
-              } ?>
+	echo "<div class='float-left'>" . ucwords($topping->topping_name) . " </div><div class='float-right'>$topping->price</div><br />";
+}?>
             </div>
           </div>
         </div>

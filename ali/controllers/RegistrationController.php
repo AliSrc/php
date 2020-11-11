@@ -13,7 +13,7 @@ class RegistrationController
     /**
      * @throws \Exception
      */
-    public function store()
+    public function registerUser()
     {
         $name = $_POST['name'];
         $lastname = $_POST['lastname'];

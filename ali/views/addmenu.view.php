@@ -17,15 +17,15 @@ require 'partials/head.php';
         <form method="POST" action="/addmenu" enctype="multipart/form-data ">
           <div class="form-group">
             <label>Number</label>
-            <input type="text" class="form-control" name="pizza_number" id="pizza_number" placeholder="Enter Pizza Number" autofocus>
+            <input type="text" class="form-control" name="pizza_number" id="pizza_number" placeholder="Enter Pizza Number" autofocus required>
           </div>
           <div class="form-group">
             <label>Pizza Name</label>
-            <input type="text" class="form-control" name="pizza_name" id="pizza_name" placeholder="Enter Pizza Name">
+            <input type="text" class="form-control" name="pizza_name" id="pizza_name" placeholder="Enter Pizza Name" required>
           </div>
           <div class="form-group">
             <label>Price</label>
-            <input type="text" class="form-control" name="price" id="price" placeholder="Enter Price">
+            <input type="text" class="form-control" name="price" id="price" placeholder="Enter Price" required>
           </div>
           <div class="form-group">
             <label for="category">Category</label>

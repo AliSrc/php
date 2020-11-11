@@ -16,7 +16,7 @@ require 'partials/head.php';
         <form method="POST" action="/category" enctype="multipart/form-data ">
           <div class="form-group">
             <label>Category Name</label>
-            <input type="text" class="form-control" name="category" id="category" placeholder="Category Name" autofocus>
+            <input type="text" class="form-control" name="category" id="category" placeholder="Category Name" autofocus required>
           </div>
       <button type="submit" class="btn btn-primary">Submit</button>
         <a href="/addmenu"><button type="button" class="btn btn-primary">Add Product</button></a>
