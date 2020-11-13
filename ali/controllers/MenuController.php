@@ -123,7 +123,7 @@ class MenuController
         if ($valid == false) {
             return redirect('addtopping');
         } else {
-
+//Den er god nok
             App::get('pizzaQuery')->insertTopping('toppings', $topping, $price);
             return view('addtopping', 'errorMessage');
         }
