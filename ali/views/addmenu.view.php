@@ -14,7 +14,7 @@ require 'partials/head.php';
       <?php
 echo "<label for='topping'>Pizzas</label><br />";
 foreach ($pizzas as $pizza) {
-    echo "<span class='font-weight-bold'>" . $pizza->pizzaNumber . ". " . ucwords("$pizza->pizzaName") . "<br />";
+	echo "<span class='font-weight-bold'>" . $pizza->pizza_number . ". " . ucwords("$pizza->pizza_name") . "<br />";
 }
 
 ?>

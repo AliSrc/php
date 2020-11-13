@@ -11,7 +11,7 @@ require 'partials/head.php';
       <?php
 echo "<label for='topping'>Pizzas</label><br />";
 foreach ($categories as $category) {
-    echo "<span class='font-weight-bold'>$category->category_id. $category->category_name<br />";
+	echo "<span class='font-weight-bold'>" . ucwords($category->category_name) . "<br />";
 }
 ?>
       </div>
